@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pump Route in icons</title>
+<meta name="description" content="The price of gasoline from Dilma to Lula, in icons: where the money for a litre goes, each government's adjusted price, the litres the minimum wage buys, the Minas Gerais ICMS and the tax cuts in election years.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/visual/visual.css">
+<style>
+:root{--accent:#9a5b00;--hero:#7a4800}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#f0b75a;--hero:#7a4800}}
+:root[data-theme="dark"]{--accent:#f0b75a;--hero:#7a4800}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato fácil */body{font-size:19px;line-height:1.7}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(46px,11vw,104px);line-height:.9;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Routes"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/en/">Routes</a><a href="https://fcarvalhodev.github.io/rota-washington/en/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/en/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/en/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/en/">Faith</a><a href="https://fcarvalhodev.github.io/rota-esplanada/en/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/en/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/en/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/en/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/en/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/en/">Treasury</a><a href="https://fcarvalhodev.github.io/rota-rouanet/en/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/en/">Winds</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/en/">Algorithm</a><a href="https://fcarvalhodev.github.io/rota-do-posto/en/" aria-current="page">Pump</a><a class="rb-lang" href="../visual.html" hreflang="pt-BR" lang="pt-BR">PT</a></div></nav>
+
+
+<main class="rv" id="rv" aria-label="Pump Route in icons"></main>
+<script>
+window.RV_DATA={lang:"en",
+ kicker:"Pump Route · in icons",
+ title:"Whose fault is expensive gasoline?",
+ answer:"What moves the price most comes <b>from abroad</b>: oil and the dollar. Adjusted for inflation, gasoline was <b>most expensive under Bolsonaro</b> and <b>cheapest under Dilma</b>. In Minas Gerais, the 31% ICMS added about <b>R$0.47</b> per litre until 2022.",
+ heroIcons:["iso-carro","iso-gota","iso-sobe","iso-cedula-real","iso-desce","iso-caminhao","iso-gota","iso-governo","iso-moeda","iso-carro"],
+ full:"index.html",
+ updated:"ANP prices up to September 2026 · updated on October 15, 2026 · our own icons and Tabler Icons (MIT)",
+ cards:[
+  {type:"hero",span:"s4",rows:2},
+  {type:"stack",span:"s8",label:"A litre at R$6.54, October 2026",title:"Where the money goes",
+   items:[["Petrobras",2.08,"R$ 2.08","var(--accent)","decides: Petrobras"],["Distributors and gas stations",1.67,"R$ 1.67","#5b6b7a","decides: the companies"],["ICMS",1.57,"R$ 1.57","#7a3e8f","decides: the 27 states jointly"],["Blended ethanol",0.98,"R$ 0.98","#3f7d3a","market price"],["Federal taxes",0.24,"R$ 0.24","#b3261e","decides: the federal government"]],
+   alt:"Petrobras R$2.08, distributors and gas stations R$1.67, ICMS R$1.57, ethanol R$0.98, federal taxes R$0.24",
+   text:"The president controls directly only the federal tax, which is almost zero today.",
+   src:[["Petrobras: price breakdown","https://precos.petrobras.com.br/w/gasolina/br"]]},
+  {type:"line",span:"s8",label:"Gasoline, average for each year, in today's money",title:"The peak was in 2021 and 2022",suf:"",dec:2,ymax:8.2,ymin:5,
+   points:[[2013,5.91,"2013"],[2014,5.79,"2014",0,1],[2015,5.97,"2015",0,1],[2016,6.04,"2016"],[2017,5.98,"2017",0,1],[2018,6.75,"2018"],[2019,6.46,"2019",0,1],[2020,6.12,"2020"],[2021,7.62,"2021",1],[2022,7.39,"2022",0,1],[2023,6.36,"2023"],[2024,6.56,"2024",0,1],[2025,6.58,"2025",0,1],[2026,6.63,"2026"]],
+   eras:[[2013,2016.3,"Dilma"],[2016.3,2019,"Temer"],[2019,2023,"Bolsonaro"],[2023,2026,"Lula"]],
+   alt:"Average annual price of gasoline adjusted for inflation, from R$5.91 in 2013 to R$7.62 in 2021 and R$6.63 in 2026",
+   text:"Values in reais per litre, adjusted by the IPCA to September 2026. 2026 runs to September.",
+   src:[["ANP: monthly series","https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/precos-revenda-e-de-distribuicao-combustiveis/serie-historica-do-levantamento-de-precos"],["IBGE: IPCA","https://sidra.ibge.gov.br/tabela/1737"]]},
+  {type:"bars",span:"s4",label:"Average for each government, in today's money",title:"Most expensive under Bolsonaro",max:7.2,
+   items:[{name:"Dilma",label:"R$ 5.92",v:5.92,color:"#c2185b"},{name:"Temer",label:"R$ 6.26",v:6.26,color:"#4e5d6c"},{name:"Bolsonaro",label:"R$ 6.91",v:6.91,color:"#1d5fa8"},{name:"Lula",label:"R$ 6.52",v:6.52,color:"#c62828"}],
+   text:"Dilma: from 2013, when ANP's monthly series begins.",
+   src:[["Full page","index.html#h-preco"]]},
+  {type:"bars",span:"s4",label:"Litres of gasoline per minimum wage",title:"The minimum wage bought less under Bolsonaro",max:260,
+   items:[{name:"Lula",label:"242 litres",v:242,color:"#c62828"},{name:"Dilma",label:"239 litres",v:239,color:"#c2185b"},{name:"Temer",label:"235 litres",v:235,color:"#4e5d6c"},{name:"Bolsonaro",label:"217 litres",v:217,color:"#1d5fa8"}],
+   text:"The worst year was 2021: 192 litres. The wage increase is also the government's decision.",
+   src:[["Full page","index.html#h-salario"]]},
+  {type:"compare",span:"s4",label:"How much more Minas Gerais paid than São Paulo, per litre",title:"The 31% ICMS weighed",
+   a:{name:"MG 31% × SP 25%, 2017 to 2022",v:0.47,dec:2,pre:"R$ ",color:"#7a3e8f"},
+   b:{name:"Same ICMS nationwide, since 2023",v:0.02,dec:2,pre:"R$ "},
+   text:"The 31% came from Fernando Pimentel, of the PT, in 2017. Zema kept it until the 2022 federal law. Today Minas Gerais has the 2nd-cheapest gasoline in the country.",
+   src:[["Full page","index.html#h-minas"]]},
+  {type:"chips",span:"s12",label:"What each government did",title:"Who paid the bill in each period",
+   items:[
+    ["2011–2014","Dilma: Petrobras below the price abroad","Estimated loss of R$55 billion; CIDE cut to zero","#c2185b"],
+    ["2016–2018","Temer: international price and tax doubled","Truckers' strike in 2018","#4e5d6c"],
+    ["2019–2021","Bolsonaro: sale of BR and the Bahia refinery","Record of R$7.39 in June 2022","#1d5fa8"],
+    ["Jun 2022","Bolsonaro: federal tax cut to zero and ICMS cap","Four months before the election","#1d5fa8"],
+    ["2023","Lula: federal tax returns and end of the international price","Petrobras cuts R$0.40","#c62828"],
+    ["2026","Lula: subsidies during the war and tax cut to zero","16 days before the runoff","#c62828"]],
+   src:[["Full timeline","index.html#h-gov"]]},
+  {type:"verdicts",span:"s12",label:"Is it true?",
+   items:[["v","“Gasoline was never as expensive as under Bolsonaro.” Since 2013, yes."],["f","“Gasoline is more expensive today than ever.”"],["v","“Under Lula, the minimum wage buys more gasoline than under Bolsonaro.”"],["m","“Diesel got more expensive under Lula.”"],["m","“Gasoline in Minas Gerais is expensive because of Zema.”"],["m","“Gasoline is expensive because of the privatization of BR.”"],["v","“Bolsonaro and Lula zeroed the tax on gasoline in the election year.”"]],
+   src:[["Explanation of each one","index.html#h-vf"]]}
+ ]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/icons.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/visual.js"></script>
+</body></html>
