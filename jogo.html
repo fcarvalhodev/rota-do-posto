@@ -1,245 +1,209 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bomba ou Bombou?</title>
-<meta name="description" content="Dois anos, um litro de gasolina. Em qual deles ela pesou mais no bolso, já descontada a inflação? Depois, abasteça de fatos contra os boatos do posto.">
+<title>Baixa Esse Preço!</title>
+<meta name="description" content="Jogo da Rota do Posto: você é o presidente a quatro meses da eleição e precisa baixar a gasolina. Descubra em qual pedaço do litro você manda de verdade.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{
+  --bg:#f3f1ea; --paper:#fbfaf6; --ink:#1c1b1f; --muted:#5b5a63; --line:#d9d5ca; --soft:#ebe7dc;
+  --doc:#1f6b45; --doc-soft:#dcefe3; --open:#5b4bb0; --open-soft:#e7e3f6; --alleg:#a3501a; --alleg-soft:#f8e6d7; --no:#a12a2a; --no-soft:#f6dede;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px}
+header.g{padding-block:26px 8px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(52px,13vw,104px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(30px,6.5vw,44px);line-height:.95;text-transform:uppercase;margin:0 0 10px}
+h3{font-family:var(--ui);font-size:19px;line-height:1.25;margin:0 0 6px}
+.lede{margin:0;max-width:64ch;font-size:18px}
+.how{margin:0;font-family:var(--ui);font-size:15px;color:var(--muted)}
+.btn{font-family:var(--ui);font-weight:800;font-size:17px;border:0;border-radius:999px;padding:12px 20px;background:var(--accent);color:var(--paper);cursor:pointer;min-height:48px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.btn[disabled]{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tg{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;white-space:nowrap;vertical-align:2px}
+.tg.doc{background:var(--doc-soft);color:var(--doc);border:1px solid var(--doc)}
+.tg.open{background:var(--open-soft);color:var(--open);border:1px dashed var(--open)}
+.tg.alleg{background:var(--alleg-soft);color:var(--alleg);border:1px solid var(--alleg)}
+.tg.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.facts li{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c,var(--line));border-radius:8px;padding:12px 14px}
+.facts li b{font-family:var(--ui)}
+.facts li small{display:block;margin-top:4px;font-family:var(--ui);font-size:13px;color:var(--muted)}
+.facts li small a{color:var(--muted)}
+.facts .yr{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:6px}
+section.blk{margin-block:26px}
+.note{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.end{border:2px solid var(--accent);border-radius:12px;background:var(--paper);padding:18px;display:grid;gap:12px}
+footer.g{margin-block:36px 28px;font-family:var(--ui);font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 <style>
 :root{--accent:#9a5b00;--hero:#7a4800}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#f0b75a;--hero:#7a4800}}
 :root[data-theme="dark"]{--accent:#f0b75a;--hero:#7a4800}
-.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+
+</style>
+<style>
+.game{display:grid;gap:14px;margin-top:8px}
+.top{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:stretch}
+.pump{width:132px;background:#b91c1c;border-radius:16px 16px 6px 6px;padding:12px 10px;display:grid;gap:8px;justify-items:center;color:#fff;font-family:var(--ui);box-shadow:inset 0 -8px 0 rgba(0,0,0,.2)}
+.pump .lbl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.pump .disp{width:100%;background:#0b1410;color:#7dff9a;border-radius:6px;padding:8px 4px;text-align:center;font-family:var(--mono);font-weight:600;font-size:22px;white-space:nowrap;letter-spacing:0;box-shadow:inset 0 0 0 2px #1f3b2a}
+.pump .disp small{display:block;font-size:10px;color:#7fbf8f}
+.pump .hose{font-size:30px;line-height:1}
+.pump.blink .disp{animation:bl .5s ease 2}
+@keyframes bl{50%{color:#fff}}
+.side{display:grid;gap:8px;align-content:start}
+.month{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:34px;line-height:1;text-transform:uppercase;color:var(--accent)}
+.event{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:10px;padding:10px 12px;font-family:var(--ui);font-size:15px;line-height:1.4}
+.coins{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.coins b{font-size:18px;color:var(--ink);letter-spacing:2px}
+.litro h3{margin:0 0 6px;font-size:16px}
+.bar{display:flex;height:46px;border-radius:8px;overflow:hidden;border:2px solid var(--ink)}
+.bar i{display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--mono);font-size:12px;font-weight:600;font-style:normal;transition:flex-grow .6s ease;min-width:0;overflow:hidden;white-space:nowrap}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 12px;margin-top:8px;font-family:var(--ui);font-size:13px;line-height:1.3}
+.keys span{display:grid;grid-template-columns:12px 1fr;gap:6px}
+.keys span::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--c);margin-top:2px}
+.keys small{display:block;color:var(--muted)}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+.act{display:flex;gap:10px;align-items:center;text-align:left;font-family:var(--ui);font-weight:700;font-size:16px;background:var(--paper);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:12px;min-height:56px;cursor:pointer}
+.act .i{font-size:24px}
+.act:hover:not([disabled]){border-color:var(--accent)}
+.act[disabled]{opacity:.45;cursor:default}
+.res{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--ui);font-size:15px;line-height:1.45;min-height:64px}
+.res .tg{margin-right:6px}
+.res small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.cmp{display:grid;gap:8px}
+.cmp div{display:grid;gap:4px;font-family:var(--ui);font-size:14px}
+.end h2{margin:0}
+@media (max-width:420px){.pump{width:116px}.pump .disp{font-size:18px}.month{font-size:28px}}
 </style>
 </head><body>
 <style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/" aria-current="page">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/jogo.html" hreflang="en" lang="en">EN</a></div></nav>
-<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<main class="wrap">
+<header class="g">
+  <span class="kicker">Rota do Posto · jogo</span>
+  <h1>Baixa Esse Preço!</h1>
+  <p class="lede">Faltam quatro meses para a eleição, e o povo quer gasolina barata. Você é o presidente. O litro está em R$ 6,54. Cada mês, o mundo faz alguma coisa, e você faz outra.</p>
+  <p class="how">Como jogar: leia o que aconteceu lá fora e escolha uma ação. Veja o litro mudar e quem paga a conta. Os números de partida e os fatos são reais; os meses do jogo são uma simplificação.</p>
+</header>
+
+<div class="game">
+  <div class="top">
+    <div class="pump" id="pump" aria-live="polite"><span class="lbl">Gasolina</span><div class="disp" id="price">R$ 6,54<small>por litro</small></div><span class="hose" aria-hidden="true">⛽</span></div>
+    <div class="side">
+      <span class="month" id="month">Julho</span>
+      <div class="event" id="event" aria-live="polite"></div>
+      <span class="coins">Conta para o governo e a Petrobras: <b id="coins">—</b></span>
+    </div>
+  </div>
+  <div class="litro">
+    <h3>Para onde vai o dinheiro do litro</h3>
+    <div class="bar" id="bar" role="img"></div>
+    <div class="keys" id="keys"></div>
+  </div>
+  <h3 style="margin:4px 0 0">O que você faz este mês?</h3>
+  <div class="acts" id="acts"></div>
+  <div class="res" id="res" aria-live="polite">Escolha uma ação por mês. Algumas só dá para usar uma vez.</div>
+</div>
+<section class="blk end" id="end" hidden aria-live="polite">
+  <h2 id="endT"></h2>
+  <p id="endB"></p>
+  <div class="cmp" id="cmp"></div>
+  <h3 style="margin-top:6px">Na vida real</h3>
+  <ul class="facts" id="real"></ul>
+  <div class="row"><button class="btn" type="button" id="again">Jogar de novo</button><a class="btn ghost" href="index.html">Ler a Rota do Posto</a></div>
+</section>
+<section class="blk">
+  <h2>O que você aprendeu na bomba</h2>
+  <ul class="facts" id="log"></ul>
+</section>
+
+<footer class="g">
+  <p>Fatos até 15 de outubro de 2026. Investigação não é condenação. Cada fato do jogo tem fonte; os selos seguem a <a href="https://fcarvalhodev.github.io/rotas/metodologia.html">metodologia das Rotas</a>.</p>
+  <p class="row"><a class="btn ghost" href="index.html">Ler a rota completa</a><a class="btn ghost" href="quiz.html">Fazer o quiz da rota</a></p>
+</footer>
+</main>
 <script>
-window.JG_DATA={
- "kicker": "Rota do Posto · jogo",
- "title": "Bomba ou Bombou?",
- "host": [
-  "⛽",
-  "Frentista filósofo"
- ],
- "emo": "🚗",
- "intro": "Dois anos, um litro de gasolina. Em qual deles ela pesou mais no bolso, já descontada a inflação? Depois, abasteça de fatos contra os boatos do posto.",
- "rounds": [
-  {
-   "type": "mm",
-   "title": "Gasolina de cada ano",
-   "how": "escolha o ano em que a gasolina foi mais cara, corrigida pela inflação.",
-   "q": "Em que ano a gasolina foi mais cara, corrigida pela inflação?",
-   "n": 6,
-   "pre": "R$ ",
-   "dec": 2,
-   "gap": 0.03,
-   "items": [
-    {
-     "l": "2013",
-     "sub": "Dilma",
-     "v": 5.91
-    },
-    {
-     "l": "2014",
-     "sub": "Dilma",
-     "v": 5.79
-    },
-    {
-     "l": "2015",
-     "sub": "Dilma",
-     "v": 5.97
-    },
-    {
-     "l": "2016",
-     "sub": "Dilma/Temer",
-     "v": 6.04
-    },
-    {
-     "l": "2017",
-     "sub": "Temer",
-     "v": 5.98
-    },
-    {
-     "l": "2018",
-     "sub": "Temer",
-     "v": 6.75
-    },
-    {
-     "l": "2019",
-     "sub": "Bolsonaro",
-     "v": 6.46
-    },
-    {
-     "l": "2020",
-     "sub": "Bolsonaro",
-     "v": 6.12
-    },
-    {
-     "l": "2021",
-     "sub": "Bolsonaro",
-     "v": 7.62
-    },
-    {
-     "l": "2022",
-     "sub": "Bolsonaro",
-     "v": 7.39
-    },
-    {
-     "l": "2023",
-     "sub": "Lula",
-     "v": 6.36
-    },
-    {
-     "l": "2024",
-     "sub": "Lula",
-     "v": 6.56
-    },
-    {
-     "l": "2025",
-     "sub": "Lula",
-     "v": 6.58
-    },
-    {
-     "l": "2026",
-     "sub": "Lula",
-     "v": 6.63
-    }
-   ],
-   "note": "Preço médio da gasolina comum no ano, em reais de setembro de 2026. ANP e IPCA. 2026 vai até setembro.",
-   "src": [
-    [
-     "ANP: série histórica",
-     "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/precos-revenda-e-de-distribuicao-combustiveis/serie-historica-do-levantamento-de-precos"
-    ],
-    [
-     "IBGE: IPCA",
-     "https://sidra.ibge.gov.br/tabela/1737"
-    ]
-   ]
-  },
-  {
-   "type": "boato",
-   "title": "Conversa de posto",
-   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
-   "n": 5,
-   "items": [
-    {
-     "c": "A gasolina nunca foi tão cara quanto com Bolsonaro.",
-     "v": "v",
-     "e": "Desde 2013, sim. Em maio de 2022 o litro custou em média R$ 7,28, o equivalente a R$ 8,74 hoje. A média do governo dele, corrigida, foi a maior entre os quatro.",
-     "s": []
-    },
-    {
-     "c": "Hoje a gasolina está mais cara do que nunca.",
-     "v": "f",
-     "e": "Em setembro de 2026 ela custava R$ 6,54. É menos que os R$ 7,28 de maio de 2022, mesmo sem corrigir pela inflação.",
-     "s": []
-    },
-    {
-     "c": "Com Lula, o salário mínimo compra mais gasolina do que com Bolsonaro.",
-     "v": "v",
-     "e": "Em média, 242 litros contra 217. Com Dilma, eram 239.",
-     "s": []
-    },
-    {
-     "c": "O diesel ficou mais caro com Lula.",
-     "v": "m",
-     "e": "A média do governo Lula é a maior. Mas o diesel quase dobrou no fim do governo Bolsonaro, e com Lula ele caiu quando se desconta a inflação.",
-     "s": []
-    },
-    {
-     "c": "A gasolina de Minas é cara por culpa do Zema.",
-     "v": "m",
-     "e": "O ICMS de 31% deixava a gasolina de Minas cerca de R$ 0,47 mais cara que a de São Paulo. Mas quem subiu a taxa para 31% foi Fernando Pimentel, do PT, em 2017. Zema manteve até a lei federal obrigar a baixar, em 2022. Desde 2023 o ICMS é igual em todos os estados, e Minas tem uma das gasolinas mais baratas do país.",
-     "s": []
-    },
-    {
-     "c": "Dilma quebrou a Petrobras segurando a gasolina.",
-     "v": "m",
-     "e": "A empresa perdeu dinheiro vendendo abaixo do preço de fora: cerca de R$ 55 bilhões entre 2011 e 2014, pela estimativa do CBIE. Mas a crise da Petrobras naqueles anos também teve outras causas, como a dívida alta e os desvios revelados pela Lava Jato.",
-     "s": []
-    },
-    {
-     "c": "A gasolina é cara por causa da privatização da BR.",
-     "v": "m",
-     "e": "A venda tirou do governo um jeito de fazer as baixas chegarem à bomba, e a margem dos postos subiu. Mas, descontada a inflação, a alta da margem até 2025 foi pequena, e o maior salto veio com a guerra de 2026.",
-     "s": []
-    },
-    {
-     "c": "O preço subiu em 2026 por causa da guerra.",
-     "v": "v",
-     "e": "O petróleo passou de US$ 100 depois do ataque ao Irã e do bloqueio do Estreito de Ormuz. Só na segunda semana de março, o diesel subiu 12% em Minas.",
-     "s": []
-    },
-    {
-     "c": "O ICMS não sobe desde 2022.",
-     "v": "f",
-     "e": "Os estados reajustaram o valor fixo todo ano: de R$ 1,22 por litro de gasolina em 2023 para R$ 1,57 em 2026.",
-     "s": []
-    },
-    {
-     "c": "Bolsonaro zerou imposto da gasolina no ano da eleição.",
-     "v": "v",
-     "e": "Em junho de 2022, até dezembro.",
-     "s": []
-    },
-    {
-     "c": "Lula zerou imposto da gasolina no ano da eleição.",
-     "v": "v",
-     "e": "Em 9 de outubro de 2026, por 30 dias.",
-     "s": []
-    },
-    {
-     "c": "O corte foi só para ganhar a eleição.",
-     "v": "u",
-     "e": "Vale para os dois. A data pesa, mas os dois governos tinham uma alta forte do petróleo para justificar a medida. Motivo é intenção, e intenção não se prova com a data.",
-     "s": []
-    },
-    {
-     "c": "Lula baixou a gasolina quando acabou com o PPI.",
-     "v": "m",
-     "e": "A Petrobras baixou R$ 0,40 em maio de 2023. Mas o imposto federal tinha voltado em março, e o ICMS subiu todo ano depois.",
-     "s": []
-    }
-   ]
-  }
- ],
- "ranks": [
-  [
-   0,
-   "Abasteceu com gasolina batizada."
-  ],
-  [
-   40,
-   "Tanque na reserva."
-  ],
-  [
-   65,
-   "Frentista de confiança."
-  ],
-  [
-   90,
-   "Completou o tanque de fatos."
-  ]
- ],
- "quips": {
-  "ok": [
-   "Isso! Pode publicar.",
-   "Na mosca. A fonte agradece.",
-   "Acertou. O grupo da família vai ter que engolir.",
-   "Boa! Checador raiz."
-  ],
-  "no": [
-   "Errou. Mas pelo menos você não compartilhou.",
-   "Quase. Leia a explicação antes de mandar no zap.",
-   "Não foi dessa vez. Acontece até com jornalista.",
-   "Ops. A tia do zap venceu essa."
-  ]
- },
- "full": "index.html",
- "updated": "Rotas · Rota do Posto"
-};
+
+const LBL={doc:"Documentado",open:"Em aberto",alleg:"Alegação",no:"Não demonstrado"};
+const $=id=>document.getElementById(id);
+function factLi(f,withYear){
+ const li=document.createElement("li");li.style.setProperty("--c","var(--"+f.ev+")");
+ const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
+ const b=document.createElement("b");b.textContent=" "+f.t+(/[?!.…]$/.test(f.t)?" ":". ");
+ if(withYear&&f.y){const y=document.createElement("span");y.className="yr";y.textContent=f.y;li.append(y)}
+ li.append(tg,b,document.createTextNode(f.b+" "));
+ if(f.src){const sm=document.createElement("small");const a=document.createElement("a");a.href=f.src[1];a.target="_blank";a.rel="noopener";a.textContent="Fonte: "+f.src[0];sm.append(a);li.append(sm)}
+ return li;
+}
+const PIECES=[{"id": "pet", "n": "Petrobras", "who": "Petrobras, que tem o governo como dono principal", "v": 2.08, "c": "#c2410c"}, {"id": "dist", "n": "Distribuidoras e postos", "who": "empresas privadas", "v": 1.67, "c": "#7c3aed"}, {"id": "icms", "n": "ICMS", "who": "os 27 governadores", "v": 1.57, "c": "#0f766e"}, {"id": "etanol", "n": "Etanol misturado", "who": "o mercado", "v": 0.98, "c": "#65a30d"}, {"id": "fed", "n": "Impostos federais", "who": "o presidente", "v": 0.24, "c": "#1d4ed8"}];
+const MONTHS=[{"m": "Julho", "d": 0.0, "t": "Mês calmo lá fora. O petróleo e o dólar ficam parados."}, {"m": "Agosto", "d": 0.45, "t": "Guerra no Oriente Médio: o petróleo passa de US$ 100 o barril. O preço de fora sobe R$ 0,45 por litro."}, {"m": "Setembro", "d": 0.15, "t": "O dólar sobe. O preço de fora sobe mais R$ 0,15 por litro."}, {"m": "Outubro", "d": -0.1, "t": "O petróleo recua um pouco. O preço de fora cai R$ 0,10 por litro. Falta um mês para a eleição."}];
+const ACTIONS=[{"id": "fed", "ico": "✂️", "t": "Zerar o imposto federal", "once": 1, "f": {"ev": "doc", "t": "Os dois últimos presidentes fizeram isso", "b": "Em junho de 2022, Bolsonaro zerou PIS/Cofins e CIDE da gasolina até dezembro. Em 9 de outubro de 2026, Lula zerou os mesmos impostos por 30 dias, com custo de R$ 5,2 bilhões. Só que o imposto federal já era pequeno: R$ 0,24 por litro.", "src": ["Gazeta do Povo: corte de outubro de 2026", "https://www.gazetadopovo.com.br/economia/governo-zera-impostos-federais-gasolina-16-dias-segundo-turno/"]}}, {"id": "hold", "ico": "✋", "t": "Mandar a Petrobras segurar o preço", "f": {"ev": "doc", "t": "A conta fica com a Petrobras", "b": "De 2011 a 2014, com Dilma, a Petrobras vendeu gasolina importada mais barato do que pagava. O CBIE estima R$ 55 bilhões de perda no primeiro mandato. Quando para de segurar, o preço tem de alcançar o de fora.", "src": ["O Globo/NovaCana: estimativa do CBIE", "https://www.novacana.com/noticias/miriam-leitao-gasolina-prejuizo-petrobras-210515"]}}, {"id": "icms", "ico": "🤝", "t": "Pedir aos governadores para baixar o ICMS", "once": 1, "f": {"ev": "doc", "t": "O ICMS é dos estados", "b": "Quem decide o ICMS são os 27 governadores, juntos. Em 2022, uma lei limitou o ICMS e a União compensou os estados; o pacote todo custou perto de R$ 50 bilhões, segundo o governo da época. Depois, os estados voltaram a subir: R$ 1,22 por litro em 2023 e R$ 1,57 em 2026.", "src": ["BrasilAgro: medidas de 2022", "https://www.brasilagro.com.br/conteudo/corte-de-tributos-sobre-gasolina-e-repasse-para-estados-zerarem-icms.html"]}}, {"id": "margem", "ico": "🏪", "t": "Mandar os postos baixarem a margem", "once": 1, "f": {"ev": "open", "t": "Posto é empresa privada", "b": "O governo não manda na margem de distribuidoras e postos. Ela foi de R$ 0,74 para R$ 1,14 por litro entre 2019 e 2025, segundo o Ineep, com dados da ANP. Quanto disso é culpa da venda da BR Distribuidora, não há estudo independente que diga.", "src": ["O Tempo: venda da BR e margens", "https://www.otempo.com.br/economia/2026/3/14/venda-da-br-distribuidora-dona-dos-postos-petrobras-mudou-dinamica-dos-precos-dos-combustiveis"]}}, {"id": "nada", "ico": "🌎", "t": "Deixar seguir o preço de fora", "f": {"ev": "doc", "t": "O preço internacional", "b": "De 2016 a maio de 2023, a Petrobras seguiu o preço de importação: o litro subia e descia junto com o petróleo e o dólar. Com Lula, ela deixou essa regra, mas continua olhando o mercado de fora.", "src": ["Poder360: fim do PPI", "https://www.poder360.com.br/economia/petrobras-anuncia-reducao-de-r-040-no-litro-da-gasolina/"]}}];
+const REAL=[{"ev": "doc", "t": "2022, na vida real", "b": "Com o imposto federal zerado e o ICMS limitado quatro meses antes da eleição, o litro caiu de R$ 7,39, o recorde, para R$ 4,81 em setembro.", "src": ["O Povo/ANP: R$ 7,39 a R$ 4,81", "https://www.opovo.com.br/noticias/economia/2022/09/30/anp-na-14-semana-de-queda-preco-medio-gasolina-nas-bombas-cai-143.html"]}, {"ev": "doc", "t": "O preço, governo por governo", "b": "Corrigida pela inflação, a gasolina custou em média R$ 5,92 com Dilma, R$ 6,26 com Temer, R$ 6,91 com Bolsonaro e R$ 6,52 com Lula, até setembro de 2026. O pico foi maio de 2022, com a guerra na Ucrânia.", "src": ["ANP: série histórica de preços", "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/precos-revenda-e-de-distribuicao-combustiveis/serie-historica-do-levantamento-de-precos"]}, {"ev": "doc", "t": "Quem manda no litro", "b": "De R$ 6,54 por litro em outubro de 2026, o presidente manda direto só nos impostos federais, que estavam quase zerados. Na Petrobras ele manda por tabela. O ICMS é dos estados, a margem é das empresas, e o petróleo e o dólar vêm de fora.", "src": ["Petrobras: composição do preço", "https://precos.petrobras.com.br/w/gasolina/br"]}];
+
+const START={};PIECES.forEach(p=>START[p.id]=p.v);
+let v,world,mi,coins,used,heldPrev,fedOff,learned;
+const money=x=>"R$ "+x.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const total=()=>PIECES.reduce((s,p)=>s+v[p.id],0);
+function draw(){const bar=$("bar");bar.textContent="";const t=total();
+ PIECES.forEach(p=>{const i=document.createElement("i");i.style.background=p.c;i.style.flexGrow=Math.max(.001,v[p.id]);i.textContent=v[p.id]>=.5?money(v[p.id]):"";bar.append(i)});
+ bar.setAttribute("aria-label",PIECES.map(p=>p.n+" "+money(v[p.id])).join(", "));
+ $("keys").textContent="";PIECES.forEach(p=>{const s=document.createElement("span");s.style.setProperty("--c",p.c);const b=document.createElement("b");b.textContent=p.n+": "+money(v[p.id]);const sm=document.createElement("small");sm.textContent="Quem decide: "+p.who;const d=document.createElement("div");d.append(b,sm);s.append(d);$("keys").append(s)});
+ $("price").firstChild.textContent=money(t);$("coins").textContent=coins?"🪙".repeat(Math.min(coins,14))+(coins>14?" +"+(coins-14):""):"nada ainda"}
+function blink(){const p=$("pump");p.classList.remove("blink");void p.offsetWidth;p.classList.add("blink")}
+function month(){const m=MONTHS[mi];$("month").textContent=m.m;$("event").textContent=m.t;
+ $("acts").querySelectorAll("button").forEach(b=>{const a=ACTIONS.find(x=>x.id===b.dataset.id);b.disabled=!!(a.once&&used.has(a.id))})}
+function result(a,extra){const r=$("res");r.textContent="";const tg=document.createElement("span");tg.className="tg "+a.f.ev;tg.textContent=LBL[a.f.ev];
+ const b=document.createElement("b");b.textContent=extra;r.append(tg,b,document.createTextNode(" "+a.f.b));
+ const sm=document.createElement("small");const l=document.createElement("a");l.href=a.f.src[1];l.target="_blank";l.rel="noopener";l.textContent="Fonte: "+a.f.src[0];sm.append(l);r.append(sm);
+ if(!learned.has(a.id)){learned.add(a.id);$("log").prepend(factLi(a.f,false))}}
+function act(id){const a=ACTIONS.find(x=>x.id===id);const m=MONTHS[mi];world+=m.d;let msg="";
+ if(id==="hold"){const gap=world-v.pet;coins+=Math.max(1,Math.round(gap*10));msg="A Petrobras segurou. A diferença para o preço de fora já é de "+money(Math.max(0,gap))+" por litro, e ela paga essa conta."}
+ else{const jump=world-v.pet;v.pet=world;if(heldPrev&&jump>0.001)msg="A Petrobras parou de segurar e o preço alcançou o de fora: "+money(jump)+" a mais de uma vez. ";}
+ if(id==="fed"){v.fed=0;fedOff=true;msg+="O imposto federal foi a zero: o litro caiu "+money(START.fed)+". ";}
+ if(id==="icms"){v.icms=Math.max(0,v.icms-.35);coins+=4;msg+="Os governadores aceitaram baixar R$ 0,35, mas só com compensação da União. ";}
+ if(id==="margem"){msg+="Os postos responderam: “Obrigado pela sugestão.” O preço não mudou. ";}
+ if(id==="nada"&&!heldPrev){msg+=m.d>0?"O preço de fora subiu e veio junto para a bomba. ":m.d<0?"O preço de fora caiu e a bomba acompanhou. ":"Nada mudou lá fora. ";}
+ if(fedOff)coins+=1;
+ heldPrev=(id==="hold");if(a.once)used.add(id);
+ result(a,msg);draw();blink();mi++;
+ if(mi>=MONTHS.length)return finish();month()}
+function finish(){$("acts").querySelectorAll("button").forEach(b=>b.disabled=true);const p=total();
+ let t,b;
+ if(p<=6.2&&coins>=6){t="Ganhou a manchete, deixou a conta";b="Bonito na bomba: o litro chegou à eleição em "+money(p)+". "+"Mas a conta ficou com o Tesouro, os estados ou a Petrobras, e alguém vai pagar depois."}
+ else if(p<=6.2){t="Preço baixo e conta pequena";b="O litro chegou à eleição em "+money(p)+", e você gastou pouco. "+"Aqui o petróleo ajudou; na vida real, ninguém controla o petróleo."}
+ else if(p>=6.54){t="O preço subiu, e a culpa caiu em você";b="O litro chegou à eleição em "+money(p)+". "+"A guerra e o dólar empurraram o preço, e o eleitor olha para o presidente, mesmo ele mandando direto em tão pouco."}
+ else{t="Empate técnico na bomba";b="O litro chegou à eleição em "+money(p)+", quase onde começou. "+"Você segurou parte da alta de fora, com algum custo."}
+ $("endT").textContent=t;$("endB").textContent=b+" Veja quanto você mexeu em cada pedaço:";
+ const c=$("cmp");c.textContent="";PIECES.forEach(x=>{const d=document.createElement("div");const dv=v[x.id]-START[x.id];d.textContent=x.n+": "+money(START[x.id])+" → "+money(v[x.id])+(Math.abs(dv)<.005?", sem mudança":"");c.append(d)});
+ $("real").textContent="";REAL.forEach(f=>$("real").append(factLi(f,false)));
+ $("end").hidden=false;setTimeout(()=>$("end").scrollIntoView({behavior:"smooth",block:"start"}),400)}
+function start(){v=Object.assign({},START);world=START.pet;mi=0;coins=0;used=new Set();heldPrev=false;fedOff=false;learned=new Set();
+ $("log").textContent="";$("end").hidden=true;$("res").textContent="Escolha uma ação por mês. Algumas só dá para usar uma vez.";draw();month()}
+ACTIONS.forEach(a=>{const b=document.createElement("button");b.type="button";b.className="act";b.dataset.id=a.id;const i=document.createElement("span");i.className="i";i.textContent=a.ico;i.setAttribute("aria-hidden","true");b.append(i,document.createTextNode(a.t));b.addEventListener("click",()=>act(a.id));$("acts").append(b)});
+$("again").addEventListener("click",()=>{start();$("pump").scrollIntoView({behavior:"smooth",block:"start"})});
+start();
+
 </script>
-<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
 </body></html>

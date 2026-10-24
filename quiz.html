@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bomba ou Bombou?</title>
+<meta name="description" content="Dois anos, um litro de gasolina. Em qual deles ela pesou mais no bolso, já descontada a inflação? Depois, abasteça de fatos contra os boatos do posto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{--accent:#9a5b00;--hero:#7a4800}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#f0b75a;--hero:#7a4800}}
+:root[data-theme="dark"]{--accent:#f0b75a;--hero:#7a4800}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/" aria-current="page">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/quiz.html" hreflang="en" lang="en">EN</a></div></nav>
+<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<script>
+window.JG_DATA={
+ "kicker": "Rota do Posto · jogo",
+ "title": "Bomba ou Bombou?",
+ "host": [
+  "⛽",
+  "Frentista filósofo"
+ ],
+ "emo": "🚗",
+ "intro": "Dois anos, um litro de gasolina. Em qual deles ela pesou mais no bolso, já descontada a inflação? Depois, abasteça de fatos contra os boatos do posto.",
+ "rounds": [
+  {
+   "type": "mm",
+   "title": "Gasolina de cada ano",
+   "how": "escolha o ano em que a gasolina foi mais cara, corrigida pela inflação.",
+   "q": "Em que ano a gasolina foi mais cara, corrigida pela inflação?",
+   "n": 6,
+   "pre": "R$ ",
+   "dec": 2,
+   "gap": 0.03,
+   "items": [
+    {
+     "l": "2013",
+     "sub": "Dilma",
+     "v": 5.91
+    },
+    {
+     "l": "2014",
+     "sub": "Dilma",
+     "v": 5.79
+    },
+    {
+     "l": "2015",
+     "sub": "Dilma",
+     "v": 5.97
+    },
+    {
+     "l": "2016",
+     "sub": "Dilma/Temer",
+     "v": 6.04
+    },
+    {
+     "l": "2017",
+     "sub": "Temer",
+     "v": 5.98
+    },
+    {
+     "l": "2018",
+     "sub": "Temer",
+     "v": 6.75
+    },
+    {
+     "l": "2019",
+     "sub": "Bolsonaro",
+     "v": 6.46
+    },
+    {
+     "l": "2020",
+     "sub": "Bolsonaro",
+     "v": 6.12
+    },
+    {
+     "l": "2021",
+     "sub": "Bolsonaro",
+     "v": 7.62
+    },
+    {
+     "l": "2022",
+     "sub": "Bolsonaro",
+     "v": 7.39
+    },
+    {
+     "l": "2023",
+     "sub": "Lula",
+     "v": 6.36
+    },
+    {
+     "l": "2024",
+     "sub": "Lula",
+     "v": 6.56
+    },
+    {
+     "l": "2025",
+     "sub": "Lula",
+     "v": 6.58
+    },
+    {
+     "l": "2026",
+     "sub": "Lula",
+     "v": 6.63
+    }
+   ],
+   "note": "Preço médio da gasolina comum no ano, em reais de setembro de 2026. ANP e IPCA. 2026 vai até setembro.",
+   "src": [
+    [
+     "ANP: série histórica",
+     "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/precos-revenda-e-de-distribuicao-combustiveis/serie-historica-do-levantamento-de-precos"
+    ],
+    [
+     "IBGE: IPCA",
+     "https://sidra.ibge.gov.br/tabela/1737"
+    ]
+   ]
+  },
+  {
+   "type": "boato",
+   "title": "Conversa de posto",
+   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
+   "n": 5,
+   "items": [
+    {
+     "c": "A gasolina nunca foi tão cara quanto com Bolsonaro.",
+     "v": "v",
+     "e": "Desde 2013, sim. Em maio de 2022 o litro custou em média R$ 7,28, o equivalente a R$ 8,74 hoje. A média do governo dele, corrigida, foi a maior entre os quatro.",
+     "s": []
+    },
+    {
+     "c": "Hoje a gasolina está mais cara do que nunca.",
+     "v": "f",
+     "e": "Em setembro de 2026 ela custava R$ 6,54. É menos que os R$ 7,28 de maio de 2022, mesmo sem corrigir pela inflação.",
+     "s": []
+    },
+    {
+     "c": "Com Lula, o salário mínimo compra mais gasolina do que com Bolsonaro.",
+     "v": "v",
+     "e": "Em média, 242 litros contra 217. Com Dilma, eram 239.",
+     "s": []
+    },
+    {
+     "c": "O diesel ficou mais caro com Lula.",
+     "v": "m",
+     "e": "A média do governo Lula é a maior. Mas o diesel quase dobrou no fim do governo Bolsonaro, e com Lula ele caiu quando se desconta a inflação.",
+     "s": []
+    },
+    {
+     "c": "A gasolina de Minas é cara por culpa do Zema.",
+     "v": "m",
+     "e": "O ICMS de 31% deixava a gasolina de Minas cerca de R$ 0,47 mais cara que a de São Paulo. Mas quem subiu a taxa para 31% foi Fernando Pimentel, do PT, em 2017. Zema manteve até a lei federal obrigar a baixar, em 2022. Desde 2023 o ICMS é igual em todos os estados, e Minas tem uma das gasolinas mais baratas do país.",
+     "s": []
+    },
+    {
+     "c": "Dilma quebrou a Petrobras segurando a gasolina.",
+     "v": "m",
+     "e": "A empresa perdeu dinheiro vendendo abaixo do preço de fora: cerca de R$ 55 bilhões entre 2011 e 2014, pela estimativa do CBIE. Mas a crise da Petrobras naqueles anos também teve outras causas, como a dívida alta e os desvios revelados pela Lava Jato.",
+     "s": []
+    },
+    {
+     "c": "A gasolina é cara por causa da privatização da BR.",
+     "v": "m",
+     "e": "A venda tirou do governo um jeito de fazer as baixas chegarem à bomba, e a margem dos postos subiu. Mas, descontada a inflação, a alta da margem até 2025 foi pequena, e o maior salto veio com a guerra de 2026.",
+     "s": []
+    },
+    {
+     "c": "O preço subiu em 2026 por causa da guerra.",
+     "v": "v",
+     "e": "O petróleo passou de US$ 100 depois do ataque ao Irã e do bloqueio do Estreito de Ormuz. Só na segunda semana de março, o diesel subiu 12% em Minas.",
+     "s": []
+    },
+    {
+     "c": "O ICMS não sobe desde 2022.",
+     "v": "f",
+     "e": "Os estados reajustaram o valor fixo todo ano: de R$ 1,22 por litro de gasolina em 2023 para R$ 1,57 em 2026.",
+     "s": []
+    },
+    {
+     "c": "Bolsonaro zerou imposto da gasolina no ano da eleição.",
+     "v": "v",
+     "e": "Em junho de 2022, até dezembro.",
+     "s": []
+    },
+    {
+     "c": "Lula zerou imposto da gasolina no ano da eleição.",
+     "v": "v",
+     "e": "Em 9 de outubro de 2026, por 30 dias.",
+     "s": []
+    },
+    {
+     "c": "O corte foi só para ganhar a eleição.",
+     "v": "u",
+     "e": "Vale para os dois. A data pesa, mas os dois governos tinham uma alta forte do petróleo para justificar a medida. Motivo é intenção, e intenção não se prova com a data.",
+     "s": []
+    },
+    {
+     "c": "Lula baixou a gasolina quando acabou com o PPI.",
+     "v": "m",
+     "e": "A Petrobras baixou R$ 0,40 em maio de 2023. Mas o imposto federal tinha voltado em março, e o ICMS subiu todo ano depois.",
+     "s": []
+    }
+   ]
+  }
+ ],
+ "ranks": [
+  [
+   0,
+   "Abasteceu com gasolina batizada."
+  ],
+  [
+   40,
+   "Tanque na reserva."
+  ],
+  [
+   65,
+   "Frentista de confiança."
+  ],
+  [
+   90,
+   "Completou o tanque de fatos."
+  ]
+ ],
+ "quips": {
+  "ok": [
+   "Isso! Pode publicar.",
+   "Na mosca. A fonte agradece.",
+   "Acertou. O grupo da família vai ter que engolir.",
+   "Boa! Checador raiz."
+  ],
+  "no": [
+   "Errou. Mas pelo menos você não compartilhou.",
+   "Quase. Leia a explicação antes de mandar no zap.",
+   "Não foi dessa vez. Acontece até com jornalista.",
+   "Ops. A tia do zap venceu essa."
+  ]
+ },
+ "full": "index.html",
+ "updated": "Rotas · Rota do Posto"
+};
+</script>
+<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
+</body></html>
